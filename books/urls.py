@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.urls import include
 from rest_framework.routers import SimpleRouter
 
 from store.views import BookViewSet, UserBookRelationView
@@ -25,6 +26,7 @@ router.register(r'book_relation', UserBookRelationView)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url('', include('store.urls')),
 ]
 
 urlpatterns += router.urls
